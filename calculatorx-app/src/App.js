@@ -20,7 +20,7 @@ const App = () => {
         }
     
         const result = eval(input);
-        setOutput(result);
+        setOutput(result.toString());
       } catch (error) {
         setOutput('Error');
       }
@@ -36,13 +36,13 @@ const App = () => {
     return (
         <div className="calculator">
           <h1>React Calculator</h1>
-            <input className="display" value={input} readOnly />
+            <input type='text' className="display" value={input} readOnly />
             <div className="output">{output}</div>
 
 
             <div className="buttons">
                 {[7, 8, 9, '+', 4, 5, 6, '-', 1, 2, 3, '*', 'C', 0, '=', '/'].map((button, index) => (
-                    <button key={index} onClick={() => {
+                    <button type='text' key={index} onClick={() => {
                       if (button === '=')
                         handleCalculate();
                       else if (button === 'C')
